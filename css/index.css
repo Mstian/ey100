@@ -1,0 +1,211 @@
+@charset "UTF-8";
+[id] {
+  width: 1200px;
+  margin: 0 auto;
+  font-family: "微软雅黑"; }
+
+html, body {
+  height: 3000px;
+  background-color: #f8f8f8; }
+
+.hbg {
+  height: 40px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff; }
+
+#header {
+  height: 40px;
+  background-color: #fff;
+  line-height: 40px;
+  color: #898989; }
+
+#header .left, #header .center, #header .right {
+  float: left; }
+
+#header .center {
+  margin-left: 76px; }
+
+#header .center span {
+  display: inline-block;
+  margin: 0 5px; }
+
+#header .right {
+  float: right; }
+
+#header .right ul li {
+  float: left;
+  margin: 0 5px; }
+
+#logo {
+  height: 170px;
+  background-color: #f8f8f8; }
+
+/*吸顶菜单*/
+.topmenu {
+  width: 100%;
+  background-color: #f8f8f8;
+  position: fixed;
+  top: -124px;
+  z-index: 3; }
+
+#topmenu .top {
+  height: 122px;
+  background-color: #f8f8f8;
+  padding: 1px; }
+
+#topmenu .top .logo, #topmenu .top .search, #topmenu .top .buying {
+  float: left;
+  margin-top: 25px; }
+
+#topmenu .top .buying {
+  float: right; }
+
+#topmenu .top .search {
+  width: 525px;
+  height: 60px;
+  margin-top: 45px;
+  margin-left: 100px; }
+
+#topmenu .top .search input {
+  width: 443px;
+  height: 36px;
+  border: 2px solid #e33333;
+  box-sizing: border-box;
+  padding-left: 5px;
+  outline: medium;
+  vertical-align: middle; }
+
+#topmenu .top .search p span {
+  display: inline-block;
+  line-height: 20px;
+  height: 20px;
+  color: #7d7d7d;
+  margin-right: 12px;
+  margin-top: 5px; }
+
+#topmenu .top .search .btn {
+  display: inline-block;
+  width: 82px;
+  height: 36px;
+  background-color: #e33333;
+  line-height: 36px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer; }
+
+/*吸顶菜单*/
+#logo .top {
+  height: 120px;
+  background-color: #f8f8f8; }
+
+#logo .bot {
+  height: 50px;
+  background-color: #f8f8f8; }
+
+#logo .top .logo, #logo .top .search, #logo .top .buying {
+  float: left;
+  margin-top: 25px; }
+
+#logo .top .buying {
+  float: right;
+  cursor: pointer; }
+
+#logo .top .search {
+  width: 525px;
+  height: 60px;
+  margin-top: 45px;
+  margin-left: 100px; }
+
+#logo .top .search input {
+  width: 443px;
+  height: 36px;
+  border: 2px solid #d7000f;
+  box-sizing: border-box;
+  padding-left: 5px;
+  outline: medium;
+  vertical-align: middle; }
+
+#logo .top .search p span {
+  display: inline-block;
+  line-height: 20px;
+  height: 20px;
+  color: #7d7d7d;
+  margin-right: 12px;
+  margin-top: 5px;
+  cursor: pointer; }
+
+#logo .top .search .btn {
+  display: inline-block;
+  width: 82px;
+  height: 36px;
+  background-color: #d7000f;
+  line-height: 36px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  vertical-align: middle;
+  cursor: pointer; }
+
+#logo .bot .sort {
+  width: 220px;
+  height: 50px;
+  background-color: #d7000f;
+  font-size: 14px;
+  color: #fff;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer; }
+
+#logo .bot .sort, #logo .bot .nav {
+  float: left; }
+
+#logo .bot .nav li {
+  float: left;
+  font-size: 14px;
+  color: #595757;
+  padding: 14px 33px;
+  cursor: pointer; }
+
+.banbg {
+  height: 458px;
+  background-color: #ddd;
+  position: relative; }
+
+.banbg .slide {
+  height: 458px; }
+
+.banbg li {
+  height: 458px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: red;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.6s linear; }
+
+.banbg li.active {
+  opacity: 1; }
+
+.banbg li img {
+  width: 100%;
+  height: 458px; }
+
+.banbg .point {
+  position: absolute;
+  z-index: 2;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -26px; }
+
+.banbg .point span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 50%; }
+
+.banbg .point span.active {
+  background-color: #e33333; }
