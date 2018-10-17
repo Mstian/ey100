@@ -1,0 +1,104 @@
+@charset "UTF-8";
+.mainbg {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 40px;
+  position: relative;
+  font-family: "微软雅黑"; }
+
+.mainbg img {
+  width: 1600px;
+  height: 480px; }
+
+.mainbg .login {
+  width: 350px;
+  height: 420px;
+  background-color: #fff;
+  position: absolute;
+  right: 80px;
+  bottom: 50%;
+  margin-bottom: -210px; }
+
+.mainbg .login h3 {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  padding: 10px 25px; }
+
+.mainbg .login h3 span {
+  float: right;
+  color: #1f7fce;
+  font-size: 12px;
+  cursor: pointer; }
+
+.mainbg .login input {
+  width: 300px;
+  height: 52px;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding-left: 40px;
+  border: none;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  outline: medium;
+  margin-left: 25px; }
+
+.mainbg .login .user {
+  background-image: url("https://www.ey100.com/Css/images/username_bg.png");
+  background-repeat: no-repeat; }
+
+.mainbg .login .password {
+  background-image: url("https://www.ey100.com/Css/images/password_bg.png");
+  background-repeat: no-repeat; }
+
+.mainbg .login .remember {
+  margin-top: 20px;
+  color: #898989;
+  width: 16px;
+  height: 19px;
+  vertical-align: bottom;
+  margin-right: 8px;
+  cursor: pointer; }
+
+.mainbg .login .btn {
+  text-align: center;
+  padding: 0;
+  background-color: #e33333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; }
+
+.mainbg .login .more {
+  padding-left: 25px;
+  margin: 10px 0; }
+
+.mainbg .login .xinlang {
+  padding-left: 25px; }
+
+.mainbg .login .xinlang i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("http://www.ey100.com/images/icon_cooperation.jpg");
+  background-repeat: no-repeat;
+  background-position: -118px 1px;
+  vertical-align: middle;
+  line-height: 20px;
+  margin-right: 5px; }
+
+.mainbg .login .register {
+  font-size: 14px;
+  padding: 0 25px;
+  margin-top: 30px; }
+
+.mainbg .login .register span {
+  float: right;
+  color: #ff1d1d;
+  cursor: pointer; }
+
+.mainbg .login .register img {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px; }

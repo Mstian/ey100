@@ -34,9 +34,6 @@ a, s, u {
   color: #333;
   font-family: "微软雅黑"; }
 
-a:hover {
-  text-decoration: underline; }
-
 ul, ol, dl {
   list-style: none; }
 

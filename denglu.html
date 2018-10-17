@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+	<link rel="stylesheet" href="font_jiantou/iconfont.css">
+	<link rel="stylesheet" href="font_jiantou/iconfont.js">
+    <link rel="stylesheet" href="iconfont/iconfont.js">
+    <link rel="stylesheet" href="css/zhuce.css">
+    <link rel="stylesheet" href="css/denglu.css">
+</head>
+<body>
+    <div class="header">
+      	<div class="hbg">
+		<div id="header" class="clearfix">
+			<div class="left">
+				<span>其他</span>
+				<span>切换城市</span>
+			</div>
+			<div class="center">
+				<span>欢迎来到易优百，请登录！</span>
+				<span>登录</span>
+				<span>/</span>
+				<span>注册</span>
+			</div>
+			<div class="right">
+				<ul class="clearfix">
+					<li class="ey100">
+						我的易优百<i class="iconfont icon-jiantou-copy-copy"></i>
+						<ul class="second">
+							<li>我的常购商品</li>
+							<li>我的订单</li>
+							<li>我的报表</li>
+							<li>我的积分</li>
+							<li>我的预定</li>
+							<li>个人资料</li>
+						</ul>				
+					</li>
+					<li>|</li>
+					<li class="message">我的消息<i class="iconfont icon-jiantou-copy-copy"></i>
+						<ul class="second">
+							<li>立即登录查看</li>
+						</ul>	
+					</li>
+					<li>|</li>
+					<li class="custom">客户服务<i class="iconfont icon-jiantou-copy-copy"></i>
+						<ul class="second">
+							<li>在线客服</li>
+							<li>在线退换货</li>
+							<li>常见问题</li>
+							<li>联系我们</li>
+						</ul>	
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+    </div>
+    <div class="logo">
+        <div id="logo">
+                <img src="http://www.ey100.com/img/new_logo.png" alt="">
+        </div>    
+    </div>
+    <div class="mainbg">
+        <img src="https://www.ey100.com/images/login/login_bg.jpg" alt="">
+        <div class="login">
+            <form action="#">
+                <h3>易优百用户登录<span class="torigis">注册新用户</span></h3>
+                <input class="user" type="text" placeholder="邮箱/手机/用户id">
+                <input class="password" type="text" placeholder="密码">
+                <input class="remember" type="checkbox">记住用户名
+                <input class="remember" type="checkbox">记住密码
+                <input class="btn" type="button" value="登录">
+                <p class="more">更多合作网站登录</p>
+                <p class="xinlang"><i></i>新浪微博</p>
+                <p class="register">您还不是易优百用户？<span class="torigis"><img src="http://www.ey100.com/images/reglink_icon.png" alt="">立即注册</span></p>
+            </form>
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script src="script/jquery-3.3.1.js"></script>
+    <script src="script/jquery.cookie.js"></script>
+    <script src="script/denglu.js"></script>
+    <script>
+        
+        $('.btn').click(function(){
+            var uservalue = $('.user').val();
+            var password = $('.password').val();
+            $.cookie('uservalue',uservalue,{path:'/',expires:15});
+            $.cookie('password',password);
+            location.href = 'http://localhost:8888/';
+        })
+    </script>
+</body>
+</html>

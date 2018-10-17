@@ -1,0 +1,149 @@
+@charset "UTF-8";
+#logo .service {
+  display: none; }
+
+#logo .sort .tab {
+  display: none; }
+
+.gobg {
+  background-color: #fff;
+  padding-top: 10px; }
+
+#goods {
+  color: #898989; }
+  #goods i {
+    font-style: normal; }
+  #goods span {
+    margin: 0 5px; }
+
+#goods .top {
+  margin: 10px 0;
+  margin-bottom: 20px; }
+
+#goods .zoom .left, #goods .zoom .right {
+  float: left;
+  height: 434px; }
+
+#goods .zoom .left {
+  width: 530px;
+  background-color: #fff; }
+
+#goods .zoom .left .tab li {
+  width: 75px;
+  height: 75px;
+  border: 1px solid #666;
+  margin-bottom: 30px; }
+
+#goods .zoom .right {
+  width: 645px;
+  background-color: #fff; }
+
+#goods .zoom .left .tab {
+  float: left; }
+
+#goods .zoom .left .list {
+  float: left;
+  position: relative;
+  margin-left: 40px; }
+  #goods .zoom .left .list li {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    opacity: 0; }
+    #goods .zoom .left .list li img {
+      width: 100%;
+      height: 100%; }
+
+#goods .zoom .left .list li.active {
+  opacity: 1; }
+
+#goods .zoom .right h3 {
+  font-size: 18px;
+  width: 600px;
+  font-weight: normal;
+  border-bottom: 1px dotted #aaa;
+  line-height: 30px;
+  color: #666;
+  margin: 0 auto; }
+
+#goods .zoom .right p {
+  width: 600px;
+  font-size: 14px;
+  margin: 0 auto;
+  line-height: 40px; }
+  #goods .zoom .right p .price {
+    color: #e33333;
+    font-size: 18px; }
+  #goods .zoom .right p select {
+    margin-left: 10px;
+    color: #898989; }
+  #goods .zoom .right p span {
+    margin-left: 10px; }
+  #goods .zoom .right p img {
+    vertical-align: middle;
+    margin-left: 10px; }
+  #goods .zoom .right p .num {
+    padding: 0 5px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #eee; }
+  #goods .zoom .right p .min {
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 13px;
+    text-align: center;
+    cursor: pointer; }
+  #goods .zoom .right p .plus {
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 13px;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 20px; }
+  #goods .zoom .right p .add {
+    font-size: 18px;
+    color: #e33333; }
+
+#goods .zoom .right .wantbuy {
+  border-bottom: 1px dotted #aaa; }
+
+#goods .zoom .right .button {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 10px; }
+  #goods .zoom .right .button .shopcar {
+    width: 108px;
+    height: 30px;
+    border: none;
+    background-color: #e33333;
+    outline: medium;
+    cursor: pointer;
+    color: #fff;
+    font-family: "微软雅黑";
+    margin-right: 10px; }
+  #goods .zoom .right .button .collect {
+    width: 70px;
+    height: 24px;
+    background-color: #666;
+    border: none;
+    outline: medium;
+    cursor: pointer;
+    color: #fff;
+    font-family: "微软雅黑"; }
+
+#goods .zoom .right .direct {
+  width: 600px;
+  margin: 0 auto;
+  font-size: 12px;
+  line-height: 20px;
+  margin-top: 20px; }

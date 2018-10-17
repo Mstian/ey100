@@ -1,0 +1,119 @@
+@charset "UTF-8";
+.logo {
+  border-bottom: 2px solid #e33333; }
+
+#logo {
+  height: 77px; }
+
+.frame {
+  width: 984px;
+  height: 584px;
+  box-sizing: border-box;
+  border: 1px solid #666;
+  margin: 40px auto;
+  font-family: "微软雅黑"; }
+
+.frame h3 {
+  line-height: 36px;
+  border-bottom: 1px solid #666;
+  font-size: 16px;
+  font-weight: normal;
+  padding: 0 5px;
+  font-style: normal; }
+
+.frame h3 span {
+  float: right;
+  font-size: 14px; }
+
+.frame h3 span i {
+  padding: 2px;
+  font-size: 12px;
+  font-style: normal;
+  background-color: #e33333;
+  color: aliceblue;
+  margin: 0 5px;
+  cursor: pointer; }
+
+.frame .chioce {
+  width: 80%;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #e33333;
+  margin: 40px auto; }
+  .frame .chioce div {
+    float: left;
+    margin-right: 10px;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer; }
+
+.frame .chioce div.active {
+  background-color: #e33333; }
+
+.frame .chioce div:nth-child(1) {
+  margin-left: 50px; }
+
+.frame .main {
+  width: 800px;
+  margin: 0 auto; }
+
+.frame .main .inp, .frame .main .pic {
+  float: left; }
+
+.frame .main .inp {
+  width: 478px;
+  height: 400px; }
+
+.frame .main .pic {
+  width: 322px;
+  height: 400px; }
+
+.frame .main .inp p {
+  margin-left: 20px;
+  margin: 20px 0; }
+
+.frame .main .inp .city {
+  margin-top: 50px; }
+
+.frame .main .inp div select {
+  width: 50px;
+  height: 18px;
+  background-color: #e3333e;
+  color: #fff; }
+
+.frame .main .inp div {
+  margin-bottom: 20px; }
+
+.frame .main .inp div span {
+  margin-right: 25px; }
+
+.frame .main .inp p span {
+  display: inline-block;
+  width: 100px;
+  text-align: left; }
+
+.frame .main .inp p input {
+  border: none;
+  outline: medium;
+  border: 1px solid #ccc;
+  width: 150px;
+  margin-right: 10px; }
+
+.frame .main .inp .item {
+  margin-left: 116px; }
+
+.frame .main .inp .btn {
+  border: none;
+  margin-left: 116px;
+  outline: medium;
+  background-color: #e33333;
+  padding: 4px;
+  color: #fff;
+  cursor: pointer; }
+
+.frame .main .inp i {
+  font-style: normal;
+  height: 20px;
+  font-size: 12px; }
