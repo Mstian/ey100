@@ -107,7 +107,8 @@ html, body {
   margin-top: 25px; }
 
 #topmenu .top .buying {
-  float: right; }
+  float: right;
+  opacity: 0; }
 
 #topmenu .top .search {
   width: 525px;
@@ -160,7 +161,21 @@ html, body {
 
 #logo .top .buying {
   float: right;
-  cursor: pointer; }
+  cursor: pointer;
+  position: relative; }
+
+#logo .top .buying .count {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #d7000f;
+  top: -1px;
+  left: 115px;
+  border-radius: 50%;
+  line-height: 25px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff; }
 
 #logo .top .search {
   width: 525px;
@@ -793,6 +808,9 @@ html, body {
 #ad {
   margin: 20px auto; }
 
+#ad img {
+  cursor: pointer; }
+
 .conbg {
   background-color: #efefef; }
 
@@ -992,3 +1010,107 @@ html, body {
   position: fixed;
   right: 0;
   top: 70%; }
+
+#more {
+  font-family: "微软雅黑";
+  padding: 1px;
+  margin-top: 20px; }
+  #more h3 {
+    font-size: 20px;
+    color: #000;
+    font-weight: normal;
+    position: relative;
+    padding-left: 10px;
+    margin: 10px 0; }
+    #more h3 span {
+      display: inline-block;
+      width: 5px;
+      height: 20px;
+      background-color: #e33333;
+      vertical-align: middlel;
+      position: absolute;
+      top: 4px;
+      left: 0; }
+
+#more .display {
+  padding: 1px;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+#more .display ul {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: block; }
+
+#more .display li {
+  width: 164px;
+  height: 270px;
+  font-size: 14px;
+  float: left;
+  margin: 0 17px; }
+
+#more .display li img {
+  margin-top: 10px;
+  width: 100%;
+  transition: all .3s linear;
+  cursor: pointer; }
+
+#more .display li p {
+  width: 164px;
+  height: 24px;
+  line-height: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  cursor: pointer; }
+
+#more .display li span {
+  color: #e33333;
+  cursor: pointer; }
+
+#more .display li:hover img {
+  transform: translate(8px); }
+
+#more .display li button {
+  border: none;
+  background-color: #e33333;
+  outline: medium;
+  color: #fff;
+  line-height: 20px;
+  display: inline-block;
+  padding: 0 2px;
+  float: right;
+  font-family: "微软雅黑";
+  cursor: pointer; }
+
+#logo .buying {
+  position: relative; }
+  #logo .buying .goods {
+    position: absolute;
+    z-index: 50; }
+    #logo .buying .goods li {
+      height: 50px;
+      width: 240px;
+      margin-top: 2px;
+      background-color: #fff; }
+      #logo .buying .goods li img {
+        height: 50px;
+        width: 50px;
+        vertical-align: middle; }
+      #logo .buying .goods li .title {
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: inline-block;
+        vertical-align: middle; }
+      #logo .buying .goods li .price {
+        color: #e33333;
+        display: inline-block;
+        vertical-align: middle; }
+      #logo .buying .goods li .num {
+        color: #e33333;
+        vertical-align: middle;
+        float: right;
+        height: 50px;
+        line-height: 50px;
+        margin-right: 5px; }

@@ -1,7 +1,6 @@
 //主体轮播图
 (function(){
 	var banbg = document.querySelector('.banbg');
-	console.log(banbg)
 	var index = 0;
 	var slidepoint = document.querySelectorAll('.banbg .point span');
 	var slideimg = document.querySelectorAll('.banbg .slide li');
@@ -264,5 +263,192 @@
 			width:'30px',
 			backgroundPosition:0,
 		})
+	})
+})();
+
+
+//瀑布流
+
+function Waterfull(){}
+$.extend(Waterfull.prototype,{
+	init:function(){
+		this.main = $('#more .display ul');
+		this.pagnum = 0;
+		this.rendering = false;
+		this.loadJson()
+		.then(function(res){
+			this.data = res.data;
+			var arr = [];
+			for(var i = 1; i < 6; i++){
+				for(var j=1;j < 6; j++){
+					arr.push(this.data[i][j].list);
+				}
+			}
+			var arr2 = [];
+			for(var d = 0; d<arr.length; d++){
+				for(var n = 0; n<arr[d].length; n++){
+					arr2.push(arr[d][n]);
+				}
+			}
+			this.data = arr2;
+			console.log(this.data);
+			this.renderPage()
+		}.bind(this))
+		this.handleEvent();
+		
+	},
+	loadJson:function(){
+		var opt = {
+			url:"http://localhost:8888/data/data.json",
+			context:this,
+		}
+		return $.ajax(opt);
+	},
+	handleEvent:function(){
+		onscroll = this.ifRender.bind(this);
+	},
+	ifRender:function(){
+		if(this.rendering) return 0;
+		var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+		var clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
+		var child = this.main[0].children;
+		var lastchild = child[child.length - 1];
+		if(scrollTop + 400 > lastchild.offsetTop){
+			this.rendering = true;
+			this.pagnum ++;
+			this.renderPage();
+		}
+	},
+	renderPage:function(){
+		var html = '';
+		var list = this.data;
+		// console.log(list)
+		for(var i = this.pagnum*6; i < this.pagnum*6 + 6; i++){
+			html+=`
+				<li> 
+					<img src="${list[i].picurl}" alt="">
+					<p>${list[i].title}</p>
+					<span>${"￥" + list[i].price}</span>
+					<button data-id="${list[i].mid}">${'加入购物车'}</button>
+				</li>
+				`;
+		}
+		this.main[0].innerHTML += html;
+		this.rendering = false;
+	},
+	
+
+})
+
+var waterfull = new Waterfull();
+waterfull.init();
+
+//购物车
+
+function ShopCar(){}
+
+$.extend(ShopCar.prototype,Waterfull.prototype,{
+	init:function(){
+		this.main = $('#more .display ul');
+		this.ShopCarIcon = $('#logo .buying').children();
+		this.goodsList = $('#logo .buying .goods');
+		this.showNumEle = $('#logo .buying').find('.count');
+		// console.log(this.main,this.ShopCarIcon,this.goodsList,this.showNumEle)
+		this.bindEvent();
+	},
+	bindEvent:function(){
+		this.main.on('click','button',this.addCar.bind(this));
+		this.ShopCarIcon.on('mouseover',this.showCar.bind(this));
+		this.ShopCarIcon.on('mouseout',this.hideCar.bind(this));
+
+	},
+	addCar:function(event){
+		var target = event.target;
+		var goodsId = $(target).attr('data-id');
+		var cookie;
+	
+		if(!(cookie == $.cookie('shopCar')) || cookie == '[]'){
+			$.cookie('shopCar',`[{"id":${goodsId}},"num":1]`);
+			this.showNum();
+			return 0;
+		}
+		var cookieArray = JSON.parse(cookie);
+		var flag = false;
+		for(var i = 0; i<cookieArray.length; i++ ){
+			if(cookieArray[i].id == goodsId){
+				flag = true;
+				cookieArray[i].num++;
+			}
+		}
+		if(flag == false){
+			cookieArray.push({
+				id:goodsId,
+				num:1
+			});
+		}
+		$.cookie('shopCar',JSON.stringify(cookieArray));
+		this.showNum();
+	},
+	showCar:function(){
+		var cookie;
+		if(!(cookie == $.cookie('shopCar'))){
+			return 0;
+		}
+		var cookieArray = JSON.parse(cookie);
+		var html = '';
+		for(var i = 0; i<cookieArray.length; i++){
+			var item = this.getItem(cookieArray[i].id);
+			html+=`
+					<li>
+						<img src="${item.picurl}" alt="">
+						<span class="title">${item.title}</span>
+						<span class="price">${"￥" + item.price}</span>
+						<span class="num">${cookieArray[i].num}</span>
+					</li>
+				`;
+		}
+		this.goodsList.html(html);
+	},
+	getItem:function(id){
+		for(var i =0; i<this.data.length; i++){
+			if(this.data[i].id == id){
+				return this.data[i];
+			}
+		}
+	},
+	hideCar:function(){
+		this.goodsList.children().remove();
+	},
+	clearCar:function(){
+		var flag = confirm("是否清空购物车？");
+		if(flag){
+			$.cookie('shopCar','');
+			this.hideCar();
+		}
+		this.showNum();
+	},
+	showNum:function(){
+		var cookie;
+		if(!(cookie == $.cookie('shopCar'))){
+			this.showNumEle.html(0);
+			return 0;
+		}
+		var cookieArray = JSON.parse($.cookie('shopCar'));
+		var sum = 0;
+		for(var i = 0; i<cookieArray.length; i++){
+			sum += Number(cookieArray[i].num);
+		}
+		this.showNumEle.html(sum);
+	}
+
+})
+var shopcar = new ShopCar();
+shopcar.init();
+
+
+//活动页连接
+(function(){
+	$('#ad img').click(function(){
+		location.href = 'http://localhost:8888/active.html';
 	})
 })()

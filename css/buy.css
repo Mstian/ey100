@@ -1,0 +1,123 @@
+#logo .service {
+  display: none; }
+
+#logo .sort .tab {
+  display: none; }
+
+#buycar h3 {
+  margin: 10px 0; }
+  #buycar h3 .bianma {
+    margin-left: 127px; }
+  #buycar h3 .jifen {
+    margin-left: 8px; }
+  #buycar h3 .kucun {
+    margin-left: 20px; }
+  #buycar h3 .xiaoji {
+    margin-left: 58px; }
+  #buycar h3 .caozuo {
+    margin-left: 38px; }
+  #buycar h3 span {
+    display: inline-block;
+    margin: 0 50px;
+    overflow: hidden; }
+  #buycar h3 .all {
+    margin-left: 2px; }
+
+#buycar li {
+  height: 60px;
+  line-height: 60px;
+  margin: 5px 0;
+  position: relative; }
+  #buycar li input {
+    vertical-align: middle; }
+  #buycar li .info {
+    width: 205px;
+    position: absolute;
+    left: 100px;
+    bottom: 0; }
+  #buycar li .mark {
+    margin-left: 340px; }
+  #buycar li .price {
+    width: 50px;
+    margin-left: 70px;
+    color: #e33333; }
+  #buycar li .score {
+    margin-left: 70px;
+    color: #e33333; }
+  #buycar li .kucun {
+    margin-left: 70px; }
+  #buycar li .num {
+    margin-left: 70px; }
+  #buycar li .count {
+    margin-left: 70px;
+    width: 30px;
+    color: #e33333; }
+  #buycar li .opera {
+    margin-left: 70px; }
+  #buycar li div {
+    display: inline-block; }
+    #buycar li div img {
+      width: 60px;
+      height: 60px;
+      vertical-align: middle;
+      float: left; }
+    #buycar li div .title {
+      float: right;
+      width: 140px;
+      line-height: 20px; }
+    #buycar li div .every {
+      float: right;
+      width: 140px;
+      line-height: 20px; }
+  #buycar li span {
+    display: inline-block; }
+    #buycar li span .jian {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      background-color: #eee;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      vertical-align: middle; }
+    #buycar li span .frame {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      background-color: #fff;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      vertical-align: middle; }
+    #buycar li span .jia {
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ccc;
+      background-color: #eee;
+      line-height: 20px;
+      text-align: center;
+      vertical-align: middle;
+      cursor: pointer; }
+    #buycar li span .del {
+      cursor: pointer; }
+    #buycar li span .col {
+      cursor: pointer; }
+
+#buycar li:nth-child(odd) {
+  background-color: #eee; }
+
+#buycar li:nth-child(even) {
+  background-color: #ddd; }
+
+#buycar h4 {
+  line-height: 60px;
+  padding-right: 40px; }
+
+#buycar h4 .all {
+  float: right; }
+
+#buycar h4 .all i {
+  font-style: normal;
+  font-size: 18px;
+  color: #e33333;
+  font-weight: normal; }

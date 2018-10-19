@@ -66,14 +66,14 @@
         </div>    
     </div>
     <div class="frame">
-        <form action="#">
+        <div class="form">
             <h3>注册新用户<span>我已经注册，现在就<i class="tolog">登录</i></span></h3>
             <div class="chioce clearfix">
                 <div class="active">使用手机注册</div>
                 <div>使用Email注册</div>
             </div>
             <div class="maintab">
-                 <div class="main clearfix">
+                <div class="main clearfix">
                 <div class="inp">
                     <div class="city">
                         <span>您选择的城市:</span>
@@ -91,18 +91,19 @@
                     </p>
                     <p>
                         <span>*登录密码</span>
-                        <input class="password" type="text">
+                        <input class="password" type="password">
                         <i></i>
                     </p>
                      <p>
                         <span>*再次输入密码</span>
-                        <input class="agpassword" type="text">
+                        <input class="agpassword" type="password">
                         <i></i>
                     </p>
                     <div class="item">
                         请阅读《易优百服务条款》    
                     </div>
-                   <button class="btn">同意以上条款并注册</button>
+                   <button class="btn rigister">同意以上条款并注册</button>
+                   <div class="infor"></div>
                 </div>
                 <div class="pic">
                     <img src="https://www.ey100.com/images/reg/reg3000.jpg" alt="">
@@ -142,13 +143,57 @@
                 </div>
             </div>
             
-        </form>
+        </div>
     </div>
     <div class="footer"></div>
 
     <script src="script/jquery-3.3.1.js"></script>
     <script src="script/zhuce.js"></script>
     <script>
+		// function ajaxPost(url,data){
+		//     return new Promise(function(succ){
+		//         var xhr = new XMLHttpRequest();
+		//         xhr.open("POST",url);
+		//         xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=utf-8;");
+		//         xhr.send(data);
+		//         xhr.onload = function(){
+		//             succ(xhr.response)
+		//         }
+		//     })
+		// }
+
+
+
+
+        $('.rigister').click(function(){
+            if($('.password').val() != $('.agpassword').val()){
+                    return 0;
+            }
+            var username = $('.phone').val();
+            var password = $('.password').val();
+           
+            var opt = {
+                url:"http://localhost:8888/proxy/localhost/1814/project/php/register.php",
+                data:{
+                    'username':username,
+                    'password':password
+                    },
+                context:this
+            }
+            $.ajax(opt).then(function(res){
+               
+                $('.infor').html(res);
+                if(res == "注册成功，即将跳转登录页面……"){
+                    confirm("是否立即登录");
+                    if(confirm){
+                        location.href = 'http://localhost:8888/denglu.html';
+                    }else{
+                        location.href = 'http://localhost:8888/zhuce.html';
+                    }
+                    
+                }
+            })
+        })
 
 
     </script>
