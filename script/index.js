@@ -330,7 +330,6 @@ $.extend(Waterfull.prototype,{
 		var html = '';
 		var list = this.data;
 		for(var i = this.pagnum*6; i < this.pagnum*6 + 6; i++){
-			// <a href="class.html#${list[i].mid}">
 			html+=`
 					<li data-id="${list[i].mid}"> 
 						<img data-id="${list[i].mid}" src="${list[i].picurl}" alt="">
@@ -339,20 +338,17 @@ $.extend(Waterfull.prototype,{
 						<button data-id="${list[i].mid}">${'加入购物车'}</button>
 					</li>
 				`;
-			//</a>
 		}
 		this.main[0].innerHTML += html;
 		this.rendering = false;
 	},
 	changePage:function(event){
-
 		var target = event.target;
 		location.href = 'class.html#' + $(target).attr('data-id');
 	},
 	addCar:function(event){
 		var target = event.target;
 		var goodsId = $(target).attr('data-id');
-		// console.log(goodsId);
 		var cookie;
 		if(!(cookie = $.cookie('shopCar'))|| cookie =='[]'){
 			$.cookie('shopCar',`[{"id":${goodsId},"num":1}]`);
