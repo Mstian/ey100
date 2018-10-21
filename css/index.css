@@ -5,7 +5,6 @@
   font-family: "微软雅黑"; }
 
 html, body {
-  height: 3000px;
   background-color: #f8f8f8; }
 
 .hbg {
@@ -31,6 +30,12 @@ html, body {
 #header .center span {
   display: inline-block;
   margin: 0 5px; }
+
+#header .center .denglu:hover {
+  color: #e33333; }
+
+#header .center .zhuce:hover {
+  color: #e33333; }
 
 #header .center span:nth-child(even) {
   cursor: pointer; }

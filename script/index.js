@@ -273,6 +273,9 @@ function Waterfull(){}
 $.extend(Waterfull.prototype,{
 	init:function(){
 		this.main = $('#more .display ul');
+		this.buy = $('#logo .top .buying');
+		this.showbuy = $('#logo .top .buying .goods');
+		this.showNumEle = $('#logo .top .buying .count');
 		this.pagnum = 0;
 		this.rendering = false;
 		this.loadJson()
@@ -291,11 +294,11 @@ $.extend(Waterfull.prototype,{
 				}
 			}
 			this.data = arr2;
-			console.log(this.data);
-			this.renderPage()
+			// console.log(this.data);
+			this.renderPage();
+			this.handleEvent();
+			this.showNum();
 		}.bind(this))
-		this.handleEvent();
-		
 	},
 	loadJson:function(){
 		var opt = {
@@ -306,6 +309,10 @@ $.extend(Waterfull.prototype,{
 	},
 	handleEvent:function(){
 		onscroll = this.ifRender.bind(this);
+		this.main.on('click','img',this.changePage.bind(this));
+		this.main.on('click','button',this.addCar.bind(this));
+		this.buy.on('mouseenter',this.showCar.bind(this));
+		this.buy.on('mouseleave',this.hideCar.bind(this));
 	},
 	ifRender:function(){
 		if(this.rendering) return 0;
@@ -322,59 +329,39 @@ $.extend(Waterfull.prototype,{
 	renderPage:function(){
 		var html = '';
 		var list = this.data;
-		// console.log(list)
 		for(var i = this.pagnum*6; i < this.pagnum*6 + 6; i++){
+			// <a href="class.html#${list[i].mid}">
 			html+=`
-				<li> 
-					<img src="${list[i].picurl}" alt="">
-					<p>${list[i].title}</p>
-					<span>${"￥" + list[i].price}</span>
-					<button data-id="${list[i].mid}">${'加入购物车'}</button>
-				</li>
+					<li data-id="${list[i].mid}"> 
+						<img data-id="${list[i].mid}" src="${list[i].picurl}" alt="">
+						<p data-id="${list[i].mid}">${list[i].title}</p>
+						<span data-id="${list[i].mid}">${"￥" + list[i].price}</span>
+						<button data-id="${list[i].mid}">${'加入购物车'}</button>
+					</li>
 				`;
+			//</a>
 		}
 		this.main[0].innerHTML += html;
 		this.rendering = false;
 	},
-	
+	changePage:function(event){
 
-})
-
-var waterfull = new Waterfull();
-waterfull.init();
-
-//购物车
-
-function ShopCar(){}
-
-$.extend(ShopCar.prototype,Waterfull.prototype,{
-	init:function(){
-		this.main = $('#more .display ul');
-		this.ShopCarIcon = $('#logo .buying').children();
-		this.goodsList = $('#logo .buying .goods');
-		this.showNumEle = $('#logo .buying').find('.count');
-		// console.log(this.main,this.ShopCarIcon,this.goodsList,this.showNumEle)
-		this.bindEvent();
-	},
-	bindEvent:function(){
-		this.main.on('click','button',this.addCar.bind(this));
-		this.ShopCarIcon.on('mouseover',this.showCar.bind(this));
-		this.ShopCarIcon.on('mouseout',this.hideCar.bind(this));
-
+		var target = event.target;
+		location.href = 'class.html#' + $(target).attr('data-id');
 	},
 	addCar:function(event){
 		var target = event.target;
 		var goodsId = $(target).attr('data-id');
+		// console.log(goodsId);
 		var cookie;
-	
-		if(!(cookie == $.cookie('shopCar')) || cookie == '[]'){
-			$.cookie('shopCar',`[{"id":${goodsId}},"num":1]`);
-			this.showNum();
+		if(!(cookie = $.cookie('shopCar'))|| cookie =='[]'){
+			$.cookie('shopCar',`[{"id":${goodsId},"num":1}]`);
 			return 0;
 		}
 		var cookieArray = JSON.parse(cookie);
 		var flag = false;
-		for(var i = 0; i<cookieArray.length; i++ ){
+
+		for(var i = 0;i<cookieArray.length; i++){
 			if(cookieArray[i].id == goodsId){
 				flag = true;
 				cookieArray[i].num++;
@@ -386,69 +373,96 @@ $.extend(ShopCar.prototype,Waterfull.prototype,{
 				num:1
 			});
 		}
+		
 		$.cookie('shopCar',JSON.stringify(cookieArray));
 		this.showNum();
+		// console.log($.cookie('shopCar'));
 	},
 	showCar:function(){
+		// console.log(111);
 		var cookie;
-		if(!(cookie == $.cookie('shopCar'))){
+		if(!(cookie = $.cookie('shopCar'))){
 			return 0;
 		}
 		var cookieArray = JSON.parse(cookie);
+		// console.log(cookieArray)
 		var html = '';
 		for(var i = 0; i<cookieArray.length; i++){
-			var item = this.getItem(cookieArray[i].id);
+			
+			var list = this.getItem(cookieArray[i].id);
+			console.log(list);
 			html+=`
-					<li>
-						<img src="${item.picurl}" alt="">
-						<span class="title">${item.title}</span>
-						<span class="price">${"￥" + item.price}</span>
-						<span class="num">${cookieArray[i].num}</span>
-					</li>
-				`;
+				<li>
+					<img src="${list.picurl}" alt="">
+					// <span class="title">${list.title}</span>
+					<span class="price">${list.price}</span>
+					<span class="num">${cookieArray[i].num}</span>
+				</li>
+			`;
+			this.showbuy.html(html);
 		}
-		this.goodsList.html(html);
 	},
 	getItem:function(id){
-		for(var i =0; i<this.data.length; i++){
-			if(this.data[i].id == id){
+		for(var i = 0; i<this.data.length; i++){
+			if(this.data[i].mid == id){
 				return this.data[i];
 			}
 		}
 	},
 	hideCar:function(){
-		this.goodsList.children().remove();
-	},
-	clearCar:function(){
-		var flag = confirm("是否清空购物车？");
-		if(flag){
-			$.cookie('shopCar','');
-			this.hideCar();
-		}
-		this.showNum();
+		this.showbuy.children().remove();
 	},
 	showNum:function(){
 		var cookie;
-		if(!(cookie == $.cookie('shopCar'))){
+		if(!(cookie = $.cookie('shopCar'))){
 			this.showNumEle.html(0);
 			return 0;
 		}
-		var cookieArray = JSON.parse($.cookie('shopCar'));
+		var cookieArray = JSON.parse(cookie);
 		var sum = 0;
 		for(var i = 0; i<cookieArray.length; i++){
-			sum += Number(cookieArray[i].num);
+			sum += cookieArray[i].num;
 		}
 		this.showNumEle.html(sum);
-	}
-
+	},
 })
-var shopcar = new ShopCar();
-shopcar.init();
+
+var waterfull = new Waterfull();
+waterfull.init();
+
 
 
 //活动页连接
 (function(){
 	$('#ad img').click(function(){
 		location.href = 'http://localhost:8888/active.html';
+	})
+})();
+
+//detail跳转
+(function(){
+	$('#logo .sort .tab').click(function(){
+		location.href = 'http://localhost:8888/detail.html';
+	})
+})();
+//购物车buy页面跳转
+
+(function(){
+	$('#logo .top .buying').click(function(){
+		location.href = 'http://localhost:8888/buy.html';
+	})
+})();
+//侧边栏buy跳转
+(function(){
+	$('.sidebar li:nth-child(2)').click(function(){
+		location.href = 'http://localhost:8888/buy.html';
+	})
+})();
+
+//侧边栏登录跳转
+
+(function(){
+	$('.sidebar li:nth-child(1)').click(function(){
+		location.href = 'http://localhost:8888/denglu.html';
 	})
 })()

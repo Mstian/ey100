@@ -24,10 +24,12 @@
     margin-left: 2px; }
 
 #buycar li {
-  height: 60px;
-  line-height: 60px;
+  padding: 1px;
   margin: 5px 0;
   position: relative; }
+  #buycar li li {
+    margin: 5px 0;
+    line-height: 60px; }
   #buycar li input {
     vertical-align: middle; }
   #buycar li .info {
@@ -53,7 +55,8 @@
     width: 30px;
     color: #e33333; }
   #buycar li .opera {
-    margin-left: 70px; }
+    margin-left: 70px;
+    line-height: 60px; }
   #buycar li div {
     display: inline-block; }
     #buycar li div img {
@@ -64,6 +67,9 @@
     #buycar li div .title {
       float: right;
       width: 140px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       line-height: 20px; }
     #buycar li div .every {
       float: right;
@@ -99,15 +105,13 @@
       vertical-align: middle;
       cursor: pointer; }
     #buycar li span .del {
-      cursor: pointer; }
+      cursor: pointer;
+      width: 24px; }
     #buycar li span .col {
       cursor: pointer; }
 
 #buycar li:nth-child(odd) {
   background-color: #eee; }
-
-#buycar li:nth-child(even) {
-  background-color: #ddd; }
 
 #buycar h4 {
   line-height: 60px;
@@ -121,3 +125,10 @@
   font-size: 18px;
   color: #e33333;
   font-weight: normal; }
+
+#buycar .default {
+  width: 100%;
+  line-height: 300px;
+  font-size: 30px;
+  text-align: center;
+  font-weight: bold; }

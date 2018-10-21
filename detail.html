@@ -78,5 +78,146 @@
     <div class="footer"></div>
     <script src="script/jquery-3.3.1.js"></script>
     <script src="script/detail.js"></script>
+    <script>
+            //二级菜单
+            setTimeout((function(){
+                //ey100
+                $('#header .right ul .ey100').on('mouseover',function(){
+                    $(this).css({
+                        background:'#e33333',
+                        color:'#fff'
+                    })
+                    .find('i').addClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'block'
+                    })
+                })
+                $('#header .right ul .ey100').on('mouseout',function(){
+                    $(this).css({
+                        background:'#fff',
+                        color:'#898989'
+                    })
+                    .find('i').removeClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'none'
+                    })
+                })
+                //message
+                $('#header .right ul .message').on('mouseover',function(){
+                    $(this).css({
+                        background:'#e33333',
+                        color:'#fff'
+                    })
+                    .find('i').addClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'block'
+                    })
+                })
+                $('#header .right ul .message').on('mouseout',function(){
+                    $(this).css({
+                        background:'#fff',
+                        color:'#898989'
+                    })
+                    .find('i').removeClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'none'
+                    })
+                })
+                //custom
+                $('#header .right ul .custom').on('mouseover',function(){
+                    $(this).css({
+                        background:'#e33333',
+                        color:'#fff'
+                    })
+                    .find('i').addClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'block'
+                    })
+                })
+                $('#header .right ul .custom').on('mouseout',function(){
+                    $(this).css({
+                        background:'#fff',
+                        color:'#898989'
+                    })
+                    .find('i').removeClass('icon-jiantou-copy-copy-copy')
+                    .end()
+                    .find('.second').css({
+                        color:'#999',
+                        display:'none'
+                    })
+                })
+            }),1000);
+            
+            //返回顶部
+            setTimeout((function(){
+                var gotop = document.getElementsByClassName('gotop')[0];
+                gotop.onclick = function(){
+                    document.documentElement.scrollTop = 0;
+                    document.body.scrollTop = 0;
+                }
+            }),1000);
+            
+            //侧边栏
+            setTimeout((function(){
+                $('.sidebar').on('mouseenter','li',function(){
+                    $(this).stop().animate({
+                        width:'86px',
+                        backgroundPosition:0 -31
+                    })
+                })
+                $('.sidebar').on('mouseleave','li',function(){
+                    $(this).stop().animate({
+                        width:'30px',
+                        backgroundPosition:0,
+                    })
+                })
+            }),1000);
+            
+            
+            setTimeout((function(){
+                $('.denglu').click(function(){
+                    location.href = 'http://localhost:8888/denglu.html';
+                })
+                $('.zhuce').click(function(){
+                    location.href = 'http://localhost:8888/zhuce.html';
+                })
+            }),1000);
+            
+            //购物车页面跳转
+            setTimeout((function(){
+                $('#logo .top .buying').click(function(){
+                    location.href = 'http://localhost:8888/buy.html';
+                })
+            }),1000);
+
+            
+    //侧边栏buy跳转
+            setTimeout((function(){
+                $('.sidebar li:nth-child(2)').click(function(){
+                    location.href = 'http://localhost:8888/buy.html';
+                })
+            }),1000);
+           
+        
+
+
+    //侧边栏登录跳转
+            setTimeout((function(){
+                $('.sidebar li:nth-child(1)').click(function(){
+                    location.href = 'http://localhost:8888/denglu.html';
+                })
+            }),1000);
+           
+            </script>
 </body>
 </html>
